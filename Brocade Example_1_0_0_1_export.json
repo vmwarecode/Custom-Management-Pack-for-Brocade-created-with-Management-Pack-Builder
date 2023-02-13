@@ -1,0 +1,1392 @@
+{
+  "id": null,
+  "name": "Brocade Example",
+  "version": 1,
+  "pakSettings": {
+    "author": "tgeorge",
+    "version": {
+      "major": 1,
+      "minor": 0,
+      "patch": 0,
+      "build": 1
+    },
+    "description": "Custom Management Pack for Brocade built with MP Builder",
+    "icon": "default.png",
+    "collectionInterval": 5,
+    "apiDocumentationLink": {
+      "url": "",
+      "active": false
+    }
+  },
+  "constants": [],
+  "source": {
+    "type": "HTTP",
+    "basePath": "rest",
+    "testRequestId": "mpb_test",
+    "authentication": {
+      "type": "SESSION_TOKEN",
+      "credentials": {
+        "49cC7Cw8cv1GkKgdfY1kgy": {
+          "id": "49cC7Cw8cv1GkKgdfY1kgy",
+          "key": "user",
+          "label": "user",
+          "sensitive": false,
+          "value": null,
+          "description": ""
+        },
+        "tvD86SzSTKVhkpmeBZkr96": {
+          "id": "tvD86SzSTKVhkpmeBZkr96",
+          "key": "pass",
+          "label": "pass",
+          "sensitive": true,
+          "value": null,
+          "description": ""
+        }
+      },
+      "headers": [
+        {
+          "id": "vpfSA3hsHXMMgCqxZVacSM",
+          "key": "WSToken",
+          "value": "${authentication.session.wstoken}",
+          "enabled": true,
+          "editable": true
+        },
+        {
+          "id": "qgnAw4djyKkAKMWC6iL7W5",
+          "key": "Accept",
+          "value": "application/vnd.brocade.networkadvisor+json;version=v1",
+          "enabled": true,
+          "editable": true
+        }
+      ],
+      "token": {
+        "credentialType": "CUSTOM",
+        "responseFields": [
+          {
+            "id": "WStoken",
+            "key": "wstoken",
+            "location": "HEADER",
+            "path": [
+              "WStoken"
+            ],
+            "example": null,
+            "selected": true
+          }
+        ],
+        "getSession": {
+          "id": "getSession",
+          "name": "getSession",
+          "path": "login",
+          "method": "POST",
+          "headers": [
+            {
+              "id": "atsxXLWkM4JKeWyM3KpVXn",
+              "key": "WSUsername",
+              "value": "${authentication.credentials.user}",
+              "enabled": true,
+              "editable": true
+            },
+            {
+              "id": "kt4iMiqXx9PYtBDA8u4eUK",
+              "key": "WSPassword",
+              "value": "${authentication.credentials.pass}",
+              "enabled": true,
+              "editable": true
+            },
+            {
+              "id": "7GPN1n9q3qLBiVdR9A2Mq2",
+              "key": "Accept",
+              "value": "application/vnd.brocade.networkadvisor+json;version=v1",
+              "enabled": true,
+              "editable": true
+            }
+          ],
+          "body": "",
+          "params": [],
+          "response": null,
+          "parentRequest": null,
+          "paging": null
+        }
+      }
+    },
+    "requests": {
+      "mpb_test": {
+        "id": "mpb_test",
+        "name": "mpb_test",
+        "path": "resourcegroups",
+        "method": "GET",
+        "headers": [],
+        "body": "",
+        "params": [],
+        "response": null,
+        "parentRequest": null,
+        "paging": null
+      },
+      "towTvfQVAJUnq7CGsvhBco": {
+        "id": "towTvfQVAJUnq7CGsvhBco",
+        "name": "Resource Groups",
+        "path": "resourcegroups",
+        "method": "GET",
+        "headers": [],
+        "body": "",
+        "params": [],
+        "response": null,
+        "parentRequest": null,
+        "paging": null
+      },
+      "8PCkvunCFThFfn8HQNvwri": {
+        "id": "8PCkvunCFThFfn8HQNvwri",
+        "name": "fc fabrics",
+        "path": "resourcegroups/All/fcfabrics",
+        "method": "GET",
+        "headers": [],
+        "body": "",
+        "params": [],
+        "response": null,
+        "parentRequest": null,
+        "paging": null
+      },
+      "e5KUmHThnLJEKYGfxReMzK": {
+        "id": "e5KUmHThnLJEKYGfxReMzK",
+        "name": "FC Switches",
+        "path": "resourcegroups/All/fcfabrics/${param}/fcswitches",
+        "method": "GET",
+        "headers": [],
+        "body": "",
+        "params": [],
+        "response": null,
+        "parentRequest": {
+          "id": "dYdZpmD2L7brfUfq5TYoyD",
+          "requestId": "8PCkvunCFThFfn8HQNvwri",
+          "attributeResourcePath": [
+            "key"
+          ],
+          "attributeListPath": [
+            "fcFabrics"
+          ],
+          "identifierKey": "request_chain_id",
+          "sample": null
+        },
+        "paging": null
+      },
+      "sUSd2GKbUScVSP3BNB5gUi": {
+        "id": "sUSd2GKbUScVSP3BNB5gUi",
+        "name": "Events",
+        "path": "resourcegroups/All/events",
+        "method": "GET",
+        "headers": [],
+        "body": "",
+        "params": [],
+        "response": null,
+        "parentRequest": null,
+        "paging": null
+      },
+      "66Bn8UTYSmmNM9BRyNqnU6": {
+        "id": "66Bn8UTYSmmNM9BRyNqnU6",
+        "name": "Zone Sets",
+        "path": "resourcegroups/All/fcfabrics/${param}/zonesets",
+        "method": "GET",
+        "headers": [],
+        "body": "",
+        "params": [],
+        "response": null,
+        "parentRequest": {
+          "id": "fnDqWgTDKf4c4K9QGDXnvR",
+          "requestId": "8PCkvunCFThFfn8HQNvwri",
+          "attributeResourcePath": [
+            "key"
+          ],
+          "attributeListPath": [
+            "fcFabrics"
+          ],
+          "identifierKey": "request_chain_id",
+          "sample": null
+        },
+        "paging": null
+      },
+      "oPVwHauindVPL7Xpwe5m3h": {
+        "id": "oPVwHauindVPL7Xpwe5m3h",
+        "name": "Zone",
+        "path": "resourcegroups/All/fcfabrics/${param}/zones",
+        "method": "GET",
+        "headers": [],
+        "body": "",
+        "params": [],
+        "response": null,
+        "parentRequest": {
+          "id": "oBUXXXe4sxiyTRktfR4ZoH",
+          "requestId": "8PCkvunCFThFfn8HQNvwri",
+          "attributeResourcePath": [
+            "key"
+          ],
+          "attributeListPath": [
+            "fcFabrics"
+          ],
+          "identifierKey": "request_chain_id",
+          "sample": null
+        },
+        "paging": null
+      },
+      "vp3P9QxqfPRopXRa9WR91N": {
+        "id": "vp3P9QxqfPRopXRa9WR91N",
+        "name": "Switches",
+        "path": "resourcegroups/All/fcswitches",
+        "method": "GET",
+        "headers": [],
+        "body": "",
+        "params": [],
+        "response": null,
+        "parentRequest": null,
+        "paging": null
+      },
+      "jeZ19BJR8uN6f7k6kHRTyw": {
+        "id": "jeZ19BJR8uN6f7k6kHRTyw",
+        "name": "Ports",
+        "path": "resourcegroups/All/fcswitches/${param}/fcports",
+        "method": "GET",
+        "headers": [],
+        "body": "",
+        "params": [],
+        "response": null,
+        "parentRequest": {
+          "id": "8q7me3gCwVT26wFaQjy2qN",
+          "requestId": "vp3P9QxqfPRopXRa9WR91N",
+          "attributeResourcePath": [
+            "key"
+          ],
+          "attributeListPath": [
+            "fcSwitches"
+          ],
+          "identifierKey": "request_chain_id",
+          "sample": null
+        },
+        "paging": null
+      }
+    },
+    "resources": [
+      {
+        "id": "nSHfAB8K69tPz4oJCuf8V4",
+        "label": "Fabrics",
+        "resourceKind": "fabrics",
+        "nameMetric": "name",
+        "identifiers": [
+          "key"
+        ],
+        "isListResource": true,
+        "icon": "nodes.svg",
+        "requestedMetrics": [
+          {
+            "id": "v2c1z1acmB1EscFC1N6gnU",
+            "requestId": "8PCkvunCFThFfn8HQNvwri",
+            "metrics": [
+              {
+                "id": "sMUGfDZf8X1EJkqN9nHYWR",
+                "attributeKey": "key",
+                "label": "Key",
+                "key": "key",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "jUeg581ZQjHvETy35vHMKf",
+                "attributeKey": "name",
+                "label": "Name",
+                "key": "name",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "knrn6ouNdDhw6U2VjKJ4x9",
+                "attributeKey": "principalSwitchWwn",
+                "label": "Principal Switch Wwn",
+                "key": "principalswitchwwn",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "agLnuux4ejuNPt8BTsgWBo",
+                "attributeKey": "secure",
+                "label": "Secure",
+                "key": "secure",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "rCZbES9bCyfyh74qoBTQiE",
+                "attributeKey": "seedSwitchIpAddress",
+                "label": "Seed Switch Ip Address",
+                "key": "seedswitchipaddress",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "crGSHDuZRhuXPYXysG4bWs",
+                "attributeKey": "seedSwitchWwn",
+                "label": "Seed Switch Wwn",
+                "key": "seedswitchwwn",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              }
+            ],
+            "listPath": [
+              "fcFabrics"
+            ],
+            "listId": "key"
+          }
+        ],
+        "metricGroups": {},
+        "impliedKeys": {}
+      },
+      {
+        "id": "hMy3Mgb6xFTW5CDm3bsQjf",
+        "label": "Switches",
+        "resourceKind": "switches",
+        "nameMetric": "name",
+        "identifiers": [
+          "key"
+        ],
+        "isListResource": true,
+        "icon": "network-switch.svg",
+        "requestedMetrics": [
+          {
+            "id": "pqGtQjBFw9ETt9LpftwaNU",
+            "requestId": "e5KUmHThnLJEKYGfxReMzK",
+            "metrics": [
+              {
+                "id": "tEjUcsmBPkHh1gKpAB5JkP",
+                "attributeKey": "adCapable",
+                "label": "Ad Capable",
+                "key": "adcapable",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "8UUH1qeYui8pLPJxym8cCH",
+                "attributeKey": "autoSnmpEnabled",
+                "label": "Auto Snmp Enabled",
+                "key": "autosnmpenabled",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "4zeaQJvrZvVc2e7GRSpqEn",
+                "attributeKey": "baseSwitch",
+                "label": "Base Switch",
+                "key": "baseswitch",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "pM3dKXQJoTcbxG37wy7S5W",
+                "attributeKey": "defaultLogicalSwitch",
+                "label": "Default Logical Switch",
+                "key": "defaultlogicalswitch",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "pV7VbR3i2Azg7ZydXU3P4e",
+                "attributeKey": "domainId",
+                "label": "Domain Id",
+                "key": "domainid",
+                "dataType": "DECIMAL",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "o7Ate2YBuBPWh4xf1GnS6Q",
+                "attributeKey": "dynamicLoadSharingCapable",
+                "label": "Dynamic Load Sharing Capable",
+                "key": "dynamicloadsharingcapable",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "6aN6d9ptDFN5SoW16YD9eF",
+                "attributeKey": "fcsRole",
+                "label": "Fcs Role",
+                "key": "fcsrole",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "pGDJUHWTDcZQq8hfVUgDpz",
+                "attributeKey": "fmsMode",
+                "label": "Fms Mode",
+                "key": "fmsmode",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "gQoUjfHCcGvRXkLBAYwbix",
+                "attributeKey": "key",
+                "label": "Key",
+                "key": "key",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "o49GXW1misYAzTMQvaTW3f",
+                "attributeKey": "name",
+                "label": "Name",
+                "key": "name",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "n4joNvimRTH6fu2nRVentS",
+                "attributeKey": "lfEnabled",
+                "label": "Lf Enabled",
+                "key": "lfenabled",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "vwN6PdZfEo4SxhVSpvzQ2b",
+                "attributeKey": "operationalStatus",
+                "label": "Operational Status",
+                "key": "operationalstatus",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "ducKxtLzbvm7o1YpH2RMcp",
+                "attributeKey": "role",
+                "label": "Role",
+                "key": "role",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "42ErRxAha9LMwsSgnm1JU3",
+                "attributeKey": "state",
+                "label": "State",
+                "key": "state",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "bqHrJ4TGC3KmDwtVRsfPC7",
+                "attributeKey": "statusReason",
+                "label": "Status Reason",
+                "key": "statusreason",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "6S1SmhoHK4dVAnT6gm9nGp",
+                "attributeKey": "wwn",
+                "label": "Wwn",
+                "key": "wwn",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              }
+            ],
+            "listPath": [
+              "fcSwitches"
+            ],
+            "listId": "key"
+          }
+        ],
+        "metricGroups": {},
+        "impliedKeys": {
+          "e5KUmHThnLJEKYGfxReMzK": {
+            "identifierKey": "request_chain_id",
+            "requestId": "e5KUmHThnLJEKYGfxReMzK",
+            "sample": null
+          }
+        }
+      },
+      {
+        "id": "cLHcmzwsr37NtMp5MyH4Wf",
+        "label": "Ports",
+        "resourceKind": "ports",
+        "nameMetric": "userportnumber",
+        "identifiers": [
+          "key"
+        ],
+        "isListResource": true,
+        "icon": "disconnect.svg",
+        "requestedMetrics": [
+          {
+            "id": "x5iZbEFbTyvQktcAybLeS9",
+            "requestId": "jeZ19BJR8uN6f7k6kHRTyw",
+            "metrics": [
+              {
+                "id": "6vVifZCGQbX6VAHuMUREhY",
+                "attributeKey": "key",
+                "label": "Key",
+                "key": "key",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "v2jznDKodKjNzZme38tq3s",
+                "attributeKey": "lockedPortType",
+                "label": "Locked Port Type",
+                "key": "lockedporttype",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "6C1gonHFjrcUfoTZv2rp1S",
+                "attributeKey": "licensed",
+                "label": "Licensed",
+                "key": "licensed",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "kZnNMWnQggg1ZN11Q4R1fL",
+                "attributeKey": "islRrdyEnabled",
+                "label": "Isl Rrdy Enabled",
+                "key": "islrrdyenabled",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "iTq5sitH8C9YWBducXbMxt",
+                "attributeKey": "ficonSupported",
+                "label": "Ficon Supported",
+                "key": "ficonsupported",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "7P2QPwpu6BtzMt6qL6eNg4",
+                "attributeKey": "fcrFabricId",
+                "label": "Fcr Fabric Id",
+                "key": "fcrfabricid",
+                "dataType": "DECIMAL",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "hKdTCzo46zcgkKxgu8DX4M",
+                "attributeKey": "fcFastWriteEnabled",
+                "label": "Fc Fast Write Enabled",
+                "key": "fcfastwriteenabled",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "6UajqMmEnAdVEDtzjFge9V",
+                "attributeKey": "estimatedDistance",
+                "label": "Estimated Distance",
+                "key": "estimateddistance",
+                "dataType": "DECIMAL",
+                "unit": null,
+                "property": false,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "5U6ateCva4XDYDSZo8yqho",
+                "attributeKey": "desiredCredits",
+                "label": "Desired Credits",
+                "key": "desiredcredits",
+                "dataType": "DECIMAL",
+                "unit": null,
+                "property": false,
+                "groups": [],
+                "kpi": true,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "4eVCCYLAXb8Zrvwh2WGgGG",
+                "attributeKey": "bufferAllocated",
+                "label": "Buffer Allocated",
+                "key": "bufferallocated",
+                "dataType": "DECIMAL",
+                "unit": null,
+                "property": false,
+                "groups": [],
+                "kpi": true,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "wURQTH8tCT6CYb8NNXRwg8",
+                "attributeKey": "blocked",
+                "label": "Blocked",
+                "key": "blocked",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "mBzFQ2aYkC8uMA9Y5bmrS6",
+                "attributeKey": "areaId",
+                "label": "Area Id",
+                "key": "areaid",
+                "dataType": "DECIMAL",
+                "unit": null,
+                "property": false,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "aHyBvA6qp6FEYJ9ziDXPhS",
+                "attributeKey": "longDistanceSetting",
+                "label": "Long Distance Setting",
+                "key": "longdistancesetting",
+                "dataType": "DECIMAL",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "7SJSjZYB7E6hU4dwSsp7aD",
+                "attributeKey": "maxPortSpeed",
+                "label": "Max Port Speed",
+                "key": "maxportspeed",
+                "dataType": "DECIMAL",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "18d9waqPjBvDyg8mxAYGa6",
+                "attributeKey": "occupied",
+                "label": "Occupied",
+                "key": "occupied",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "v4FPjhoH2kqtstnRXmddQf",
+                "attributeKey": "npivEnabled",
+                "label": "Npiv Enabled",
+                "key": "npivenabled",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "rhVtUNm5FLubR7G4BAxfPh",
+                "attributeKey": "npivCapable",
+                "label": "Npiv Capable",
+                "key": "npivcapable",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "hEy33Mc8hYb395DZFr74yf",
+                "attributeKey": "persistentlyDisabled",
+                "label": "Persistently Disabled",
+                "key": "persistentlydisabled",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "gkD8FaPQP76V3SVkJ576fX",
+                "attributeKey": "portId",
+                "label": "Port Id",
+                "key": "portid",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "ne9tv2Q2MkHD6ufECHaJtN",
+                "attributeKey": "portNumber",
+                "label": "Port Number",
+                "key": "portnumber",
+                "dataType": "DECIMAL",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "bNy9DugkXdPtYo884qptVY",
+                "attributeKey": "remoteNodeWwn",
+                "label": "Remote Node Wwn",
+                "key": "remotenodewwn",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "dBMYQ9FkeL9ZXxG3uHfg9c",
+                "attributeKey": "remotePortWwn",
+                "label": "Remote Port Wwn",
+                "key": "remoteportwwn",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "q2HPve6jynjAfR6pfWkfSq",
+                "attributeKey": "slotNumber",
+                "label": "Slot Number",
+                "key": "slotnumber",
+                "dataType": "DECIMAL",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "cB449GJv17t66o5YG5Av4Y",
+                "attributeKey": "speed",
+                "label": "Speed",
+                "key": "speed",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "kC5S1PAfWfwarXyodj8UTd",
+                "attributeKey": "speedsSupported",
+                "label": "Speeds Supported",
+                "key": "speedssupported",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "fhQx1fX5ckAUkNJzHLGs9M",
+                "attributeKey": "state",
+                "label": "State",
+                "key": "state",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "83Ld7SJxBaKXKDxQ1BV4ZT",
+                "attributeKey": "status",
+                "label": "Status",
+                "key": "status",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "wTNoGKbEDbi6e5xskG6Zog",
+                "attributeKey": "type",
+                "label": "Type",
+                "key": "type",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "tyNznc4XdjiUUdByU2UpRe",
+                "attributeKey": "userPortNumber",
+                "label": "User Port Number",
+                "key": "userportnumber",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              },
+              {
+                "id": "92zb9dR42radQ2tr2rR5Qw",
+                "attributeKey": "wwn",
+                "label": "Wwn",
+                "key": "wwn",
+                "dataType": "STRING",
+                "unit": null,
+                "property": true,
+                "groups": [],
+                "kpi": false,
+                "path": [],
+                "example": null
+              }
+            ],
+            "listPath": [
+              "fcPorts"
+            ],
+            "listId": "key"
+          }
+        ],
+        "metricGroups": {},
+        "impliedKeys": {
+          "jeZ19BJR8uN6f7k6kHRTyw": {
+            "identifierKey": "request_chain_id",
+            "requestId": "jeZ19BJR8uN6f7k6kHRTyw",
+            "sample": null
+          }
+        }
+      }
+    ],
+    "externalResources": [],
+    "configuration": [
+      {
+        "id": "mpb_hostname",
+        "key": "mpb_hostname",
+        "label": "Hostname",
+        "type": "STRING",
+        "default": "",
+        "advanced": false,
+        "editable": false,
+        "options": null,
+        "description": "The hostname used to connect to the target API."
+      },
+      {
+        "id": "mpb_port",
+        "key": "mpb_port",
+        "label": "Port",
+        "type": "INTEGER",
+        "default": 443,
+        "advanced": true,
+        "editable": false,
+        "options": null,
+        "description": "The port used to connect to the target API."
+      },
+      {
+        "id": "mpb_connection_timeout",
+        "key": "mpb_connection_timeout",
+        "label": "Connection Timeout (s)",
+        "type": "INTEGER",
+        "default": 30,
+        "advanced": true,
+        "editable": false,
+        "options": null,
+        "description": "The maximum number of seconds to wait for a response from the endpoint."
+      },
+      {
+        "id": "mpb_concurrent_requests",
+        "key": "mpb_concurrent_requests",
+        "label": "Maximum Concurrent Requests",
+        "type": "INTEGER",
+        "default": 2,
+        "advanced": true,
+        "editable": false,
+        "options": null,
+        "description": "The maximum number of request that can be run simultaneously."
+      },
+      {
+        "id": "mpb_max_retries",
+        "key": "mpb_max_retries",
+        "label": "Maximum Retries",
+        "type": "INTEGER",
+        "default": 2,
+        "advanced": true,
+        "editable": false,
+        "options": null,
+        "description": "The maximum number of times a call to an endpoint will be retried if it fails."
+      },
+      {
+        "id": "mpb_ssl_config",
+        "key": "mpb_ssl_config",
+        "label": "SSL Configuration",
+        "type": "SINGLE_SELECTION",
+        "default": "Verify",
+        "advanced": true,
+        "editable": false,
+        "options": [
+          "No Verify",
+          "Verify",
+          "No SSL"
+        ],
+        "description": "The SSL mode to use when connecting to the target. Can be configured without SSL (No SSL), to use SSL but do not verify the target's certificate (No Verify), or to use SSL and verify the target's certificate (Verify)."
+      },
+      {
+        "id": "nSHfAB8K69tPz4oJCuf8V4",
+        "key": "mpb_keep_alive_interval_mpb_brocade_example_fabrics",
+        "label": "Fabrics Keep Alive Interval",
+        "type": "SINGLE_SELECTION",
+        "default": "Five Minutes",
+        "advanced": true,
+        "editable": false,
+        "options": [
+          "One Minute",
+          "Five Minutes",
+          "Fifteen Minutes",
+          "Thirty Minutes",
+          "One Hour",
+          "Three Hours",
+          "Six Hours",
+          "Twelve Hours",
+          "One Day"
+        ],
+        "description": "The amount of time a previously collected Fabrics is retained if it is not returned during collection."
+      },
+      {
+        "id": "hMy3Mgb6xFTW5CDm3bsQjf",
+        "key": "mpb_keep_alive_interval_mpb_brocade_example_switches",
+        "label": "Switches Keep Alive Interval",
+        "type": "SINGLE_SELECTION",
+        "default": "Five Minutes",
+        "advanced": true,
+        "editable": false,
+        "options": [
+          "One Minute",
+          "Five Minutes",
+          "Fifteen Minutes",
+          "Thirty Minutes",
+          "One Hour",
+          "Three Hours",
+          "Six Hours",
+          "Twelve Hours",
+          "One Day"
+        ],
+        "description": "The amount of time a previously collected Switches is retained if it is not returned during collection."
+      },
+      {
+        "id": "mpb_min_event_severity",
+        "key": "mpb_min_event_severity",
+        "label": "Minimum Event Severity",
+        "type": "SINGLE_SELECTION",
+        "default": "Info",
+        "advanced": true,
+        "editable": false,
+        "options": [
+          "Critical",
+          "Immediate",
+          "Warning",
+          "Info"
+        ],
+        "description": "The minimum severity level of events to collect."
+      },
+      {
+        "id": "cLHcmzwsr37NtMp5MyH4Wf",
+        "key": "mpb_keep_alive_interval_mpb_brocade_example_ports",
+        "label": "Ports Keep Alive Interval",
+        "type": "SINGLE_SELECTION",
+        "default": "Five Minutes",
+        "advanced": true,
+        "editable": false,
+        "options": [
+          "One Minute",
+          "Five Minutes",
+          "Fifteen Minutes",
+          "Thirty Minutes",
+          "One Hour",
+          "Three Hours",
+          "Six Hours",
+          "Twelve Hours",
+          "One Day"
+        ],
+        "description": "The amount of time a previously collected Ports is retained if it is not returned during collection."
+      }
+    ],
+    "sslConfig": null,
+    "hostname": null,
+    "port": null,
+    "events": [
+      {
+        "id": "6fd6AtzLWn6uxi1emGejMS",
+        "label": "Fabrics Events",
+        "requestId": "sUSd2GKbUScVSP3BNB5gUi",
+        "eventQuery": "events.*",
+        "defaultToAdapterInstance": false,
+        "matchMode": "FIRST",
+        "matchers": [
+          {
+            "internalResourceId": "nSHfAB8K69tPz4oJCuf8V4",
+            "id": "ePo452F4cnvs4WBFtnRPjt",
+            "type": 0,
+            "matchIdExpression": {
+              "elements": [
+                "",
+                {
+                  "id": "cPqvZ1VWj7evgy9hysotg9",
+                  "path": "sourceName",
+                  "regex": null,
+                  "example": null,
+                  "regexoutput": null
+                },
+                ""
+              ]
+            },
+            "resourceMatcherExpression": {
+              "elements": [
+                "",
+                {
+                  "id": "rr5idUoMt82Md28zBLLmWg",
+                  "path": "name",
+                  "regex": null,
+                  "example": null,
+                  "regexoutput": null
+                },
+                ""
+              ]
+            },
+            "resourceMatchers": [
+              {
+                "id": "jUeg581ZQjHvETy35vHMKf",
+                "type": "PROPERTY",
+                "key": "name",
+                "example": null,
+                "regex": null
+              }
+            ]
+          }
+        ],
+        "severity": {
+          "id": "fSfvERQrs9RwKR1SE8Y9Aw",
+          "expression": {
+            "elements": [
+              "",
+              {
+                "id": "asZoUNA6zTGf3gYmJdPvkw",
+                "path": "severity",
+                "regex": null,
+                "example": null,
+                "regexoutput": null
+              },
+              ""
+            ]
+          },
+          "mapping": [
+            {
+              "severityValue": "",
+              "vropsSeverity": "Immediate"
+            },
+            {
+              "severityValue": "Critical",
+              "vropsSeverity": "Critical"
+            },
+            {
+              "severityValue": "Warning",
+              "vropsSeverity": "Warning"
+            },
+            {
+              "severityValue": "Info",
+              "vropsSeverity": "Info"
+            },
+            {
+              "severityValue": "",
+              "vropsSeverity": "Debug"
+            },
+            {
+              "severityValue": "",
+              "vropsSeverity": "Discard"
+            }
+          ],
+          "default": "Discard"
+        },
+        "messageExpression": {
+          "elements": [
+            "",
+            {
+              "id": "k5vCCstgDbAQQ2e98o5VXu",
+              "path": "module",
+              "regex": null,
+              "example": null,
+              "regexoutput": null
+            },
+            ": ",
+            {
+              "id": "tJebE1Kckyq1PVtioA5AkY",
+              "path": "description",
+              "regex": null,
+              "example": null,
+              "regexoutput": null
+            },
+            ""
+          ]
+        },
+        "filterExpression": null,
+        "alert": {
+          "id": "2G6MJSjKx825ND13tEiMCv",
+          "type": "Application",
+          "subType": "Availability",
+          "badge": "Health",
+          "waitCycle": 1,
+          "cancelCycle": 3,
+          "recommendation": ""
+        }
+      }
+    ]
+  },
+  "relationships": [
+    {
+      "id": "vrE3ZEjMFMEqSLSsT1YwjL",
+      "name": "Fabric to Switch",
+      "parent": {
+        "id": "nSHfAB8K69tPz4oJCuf8V4",
+        "resourceKind": "fabrics",
+        "resourceKindName": "Fabrics",
+        "adapterKind": "",
+        "type": "INTERNAL"
+      },
+      "child": {
+        "id": "hMy3Mgb6xFTW5CDm3bsQjf",
+        "resourceKind": "switches",
+        "resourceKindName": "Switches",
+        "adapterKind": "",
+        "type": "INTERNAL"
+      },
+      "matchIdentifiers": [
+        {
+          "id": "gGF2vjs6oMVx7zR5fnW2Dw",
+          "parentId": {
+            "id": "sMUGfDZf8X1EJkqN9nHYWR",
+            "type": "IDENTIFIER",
+            "key": "key",
+            "example": null,
+            "regex": null
+          },
+          "childId": {
+            "id": "oMDvjwAJFoBoJ1pQwzVeEX",
+            "type": "IDENTIFIER",
+            "key": "request_chain_id",
+            "example": null,
+            "regex": null
+          }
+        }
+      ]
+    },
+    {
+      "id": "qN6ymGnHBqiLP2VmedkoVC",
+      "name": "Switch to Port",
+      "parent": {
+        "id": "hMy3Mgb6xFTW5CDm3bsQjf",
+        "resourceKind": "switches",
+        "resourceKindName": "Switches",
+        "adapterKind": "",
+        "type": "INTERNAL"
+      },
+      "child": {
+        "id": "cLHcmzwsr37NtMp5MyH4Wf",
+        "resourceKind": "ports",
+        "resourceKindName": "Ports",
+        "adapterKind": "",
+        "type": "INTERNAL"
+      },
+      "matchIdentifiers": [
+        {
+          "id": "xjr9aLTRrwsgSQxJH3gLD1",
+          "parentId": {
+            "id": "gQoUjfHCcGvRXkLBAYwbix",
+            "type": "IDENTIFIER",
+            "key": "key",
+            "example": null,
+            "regex": null
+          },
+          "childId": {
+            "id": "81pfsiFPULUtnEuQhK28yV",
+            "type": "IDENTIFIER",
+            "key": "request_chain_id",
+            "example": null,
+            "regex": null
+          }
+        }
+      ]
+    }
+  ],
+  "lastVropsConnectionId": null,
+  "isValid": false,
+  "validationJob": null
+}
